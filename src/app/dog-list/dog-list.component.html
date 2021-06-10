@@ -1,0 +1,14 @@
+<div>
+    <h4>{{ title }}</h4>
+  
+    <div *ngFor="let dog of dogs"> 
+            <div> {{dog.id}} </div>
+            <div> {{dog.name}} </div>
+            <div> <img [src]="dog.thumbnail"> </div>
+            <div class="py-5"> <button class="btn btn-primary">Like</button> </div>
+            <span>&nbsp;</span> 
+        </div>
+    </div>
+
+    
+
