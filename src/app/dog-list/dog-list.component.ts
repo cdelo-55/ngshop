@@ -21,6 +21,10 @@ export class DogListComponent implements OnInit {
     this.getUpdates();
   }
 
+  getUpdates() {
+    return this.dogsService.all().subscribe(data => {this.dogs = data});
+  }
+
   incrementLike(id: string): void{
     for(let dog in this.dogs) {
       if(this.dogs[dog].id === id) {
@@ -41,8 +45,15 @@ export class DogListComponent implements OnInit {
     }
   }
 
-  getUpdates() {
-    return this.dogsService.all().subscribe(data => {this.dogs = data});
-  }
+  // myFavorites(): void{
+  //   for(let fav in this.dogs) {
+  //     if(this.dogs[fav].favorite) {
+  //         -- create a new favorite object
+  //       }
+  //     }
+  //   }
+  //   -- return list??
+  // }
 
+  
 }
