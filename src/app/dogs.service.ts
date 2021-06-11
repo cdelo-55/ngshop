@@ -13,7 +13,7 @@ export class DogsService  {
   constructor() { }
 
   all(): Observable<Dog[]> {
-    return of(this.dogData);
+    return of(this.dogData.map((dogObj) => {return new Dog(dogObj)} ));
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DogsService} from '../dogs.service';
+import { LikeCounter } from '../like-counter';
 import { Dog } from '../dog';
 
 @Component({
@@ -21,8 +22,12 @@ export class DogListComponent implements OnInit {
     this.getUpdates();
   }
 
+  incrementLike(): void{
+
+  }
+
   getUpdates() {
-    return this.dogsService.all().subscribe(data => this.dogs = data);
+    return this.dogsService.all().subscribe(data => {this.dogs = data});
   }
 
 }
