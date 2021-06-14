@@ -52,6 +52,5 @@ export class DogListComponent implements OnInit {
     } else {
       this.myfavorites = true;
     }    
-    console.log(this.myfavorites);
   } 
 }
