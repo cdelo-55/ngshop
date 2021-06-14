@@ -13,6 +13,7 @@ export class DogListComponent implements OnInit {
   @Input() dog: Dog;
 
   title: string = 'Dog List';
+  myfavorites: boolean = false;
   dogs: Dog[] = [];
 
   constructor(private dogsService: DogsService) { }
@@ -45,15 +46,15 @@ export class DogListComponent implements OnInit {
     }
   }
 
-  // myFavorites(): void{
-  //   for(let fav in this.dogs) {
-  //     if(this.dogs[fav].favorite) {
-  //         -- create a new favorite object
-  //       }
-  //     }
-  //   }
-  //   -- return list??
-  // }
-
-  
+  myFavorites(): void {
+    console.log('beginning');
+    console.log(this.myfavorites);
+    if (this.myfavorites) {
+      this.myfavorites = false;
+    } else {
+      this.myfavorites = true;
+    }    
+    console.log(this.myfavorites);
+    console.log('the end');
+  } 
 }

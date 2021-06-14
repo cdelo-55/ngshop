@@ -1,9 +1,11 @@
 <div>
     <h4>{{ title }}</h4>
     <div class="py-5" >
-        <button class="btn btn-lg" (click)="myFavorites">My Favorites</button>
+        <button class="btn btn-lg" (click)="myFavorites"
+          [ngClass]="{'red' : myfavorites, 'white' : !myfavorites }">My Favorites</button>
     </div>
-    <div *ngFor="let dog of dogs"> 
+    <div *ngIf="!myfavorite">
+        <div *ngFor="let dog of dogs"> 
             <div> {{dog.name}} </div>
             <div> <img [src]="dog.thumbnail"> </div>
             <div class="py-5" >
@@ -13,5 +15,21 @@
                     [ngClass]="{'red' : dog.favorite, 'white' : !dog.favorite }">&hearts;</button>
             </div>
             <span>&nbsp;</span> 
+        </div>
     </div>
+    <div *ngIf="myfavorite">
+        <div *ngFor="let dog of dogs"> 
+            <div *ngIf="dog.favorite">
+                <div> {{dog.name}} </div>
+                <div> <img [src]="dog.thumbnail"> </div>
+                <div class="py-5" >
+                    {{dog.likeCount}}
+                    <button class="btn btn-sm" (click)="incrementLike(dog.id)">Like</button> 
+                    <button class="btn btn-lg"(click)="addFavorite(dog.id)"
+                        [ngClass]="{'red' : dog.favorite, 'white' : !dog.favorite }">&hearts;</button>
+                </div>
+                <span>&nbsp;</span> 
+            </div>
+        </div>
+    </div>   
 </div>
